@@ -1,0 +1,12 @@
+venv/
+.env
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+*.zip
+.pytest_cache/
+data/*.db
+data/uploads/*
+!data/uploads/.gitkeep
+.venv/
