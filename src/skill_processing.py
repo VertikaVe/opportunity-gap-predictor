@@ -11,6 +11,9 @@ import re
 from typing import Iterable, List
 
 SKILL_SYNONYMS = {
+    "cplusplus": "c++",
+     "nodejs": "node.js",
+      "node": "node.js",
     "ml": "machine learning",
     "machine-learning": "machine learning",
     "python programming": "python",
@@ -42,12 +45,22 @@ SKILL_SYNONYMS = {
 
 
 def normalize_skill(text: str) -> str:
-    """Lowercase, trim, collapse whitespace, strip stray punctuation (keeps hyphens)."""
+    """Lowercase, trim, collapse whitespace, and preserve technology names."""
     if not isinstance(text, str):
         return ""
+
     text = text.lower().strip()
+
+    # Preserve important characters used in technology names
+    text = text.replace("c++", "cplusplus")
+    text = text.replace("node.js", "nodejs")
+    text = text.replace("react.js", "react")
+
+    # Remove only stray punctuation
     text = re.sub(r"[^a-z0-9\s\-]", "", text)
+
     text = re.sub(r"\s+", " ", text).strip()
+
     return text
 
 

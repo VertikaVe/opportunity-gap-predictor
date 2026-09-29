@@ -40,6 +40,7 @@ from src.opportunity_sources.demo_provider import DemoDataProvider
 from src.opportunity_sources.unstop_provider import UnstopProvider
 from src.opportunity_sources.company_career_provider import CompanyCareerProvider
 from src.opportunity_sources.linkedin_provider import LinkedInProvider
+from src.opportunity_sources.ashby_provider import AshbyProvider
 from src.skill_processing import normalize_skill
 
 # Every registered provider. Adding a real source later means adding one
@@ -49,6 +50,7 @@ PROVIDERS = [
     UnstopProvider(),
     CompanyCareerProvider(),
     LinkedInProvider(),
+    AshbyProvider("replit"),
 ]
 
 
